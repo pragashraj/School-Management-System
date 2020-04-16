@@ -1,0 +1,40 @@
+.form{
+    background-color:blue;
+    width: 40%;
+    height: 12vh;
+    float: right;
+    margin-top: 2%;
+    margin-right: 5%;
+    opacity: 0.4;
+    border-radius: 15px;
+}
+
+.label{
+    float: left;
+    color: white;
+    font-weight: bolder;
+    margin-left: 7%;
+    margin-bottom: 5%;
+}
+
+.input{
+    float: left;
+    border: 0.5px solid;
+}
+
+.inputField{
+    width: 30%;
+    height: 10vh;
+    padding: 5px;
+    float: left;
+    margin-top: 1%;
+}
+
+.btn{
+    width:20% ;
+    height: 5vh;
+    margin-top: 4%;
+    background-color: black;
+    color: white;
+    font-weight: bold;
+}
