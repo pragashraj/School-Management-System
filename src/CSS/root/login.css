@@ -1,11 +1,11 @@
 .form{
-    background-color:blue;
+
     width: 40%;
     height: 12vh;
     float: right;
     margin-top: 2%;
     margin-right: 5%;
-    opacity: 0.4;
+    opacity: 0.8;
     border-radius: 15px;
 }
 
@@ -34,7 +34,21 @@
     width:20% ;
     height: 5vh;
     margin-top: 4%;
-    background-color: black;
+    background-color: blue;
     color: white;
     font-weight: bold;
+    float: right;
+    margin-right: 2%;
+}
+
+.submit-btn :hover{
+    cursor: pointer;
+    background-color: white;
+    opacity: 0.5;
+    color: black;
+}
+
+fieldset{
+    background-color: grey;
+    opacity: 0.8;
 }
