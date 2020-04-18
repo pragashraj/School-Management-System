@@ -34,7 +34,7 @@
     width:20% ;
     height: 5vh;
     margin-top: 4%;
-    background-color: blue;
+    background-color: #8662c7;
     color: white;
     font-weight: bold;
     float: right;
@@ -49,6 +49,6 @@
 }
 
 fieldset{
-    background-color: grey;
+    background-color: silver;
     opacity: 0.8;
 }
