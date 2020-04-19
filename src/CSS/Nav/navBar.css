@@ -4,11 +4,22 @@
     background-color: #8662c7;
 }
 
+.reorder-image{
+    float: left;
+    margin-left: 2%;
+    margin-top: 1%;
+    opacity: 0.8;
+}
+
+.reorder-image :hover{
+    cursor: pointer;
+}
+
 .logo-image{
     width: 5%;
     height: 100%;
     float: left;
-    margin-left: 5%;
+    margin-left: 4%;
 }
 
 .nav-options{
@@ -33,4 +44,8 @@
     width: 5%;
     height: 100%;
     float: right;    
+}
+
+.nav-options :hover{
+    cursor: pointer;
 }
