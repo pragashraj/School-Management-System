@@ -8,13 +8,19 @@ import reorder from '../assets/reorder.png'
 
 import {connect} from 'react-redux'
 
-const NavBar=({currentUser})=> {  
+const NavBar=({info})=> {  
+    //const type=info.mail.split('@')[1].split('.')[0]
+    const type=info.mail
     return (
         <div className="nav-bar">
-
-                <div className="reorder-image">
-                    <img src={reorder} alt="admin-Dash-board"/>
-                </div>
+                {
+                    type==="ad" ? (
+                        <div className="reorder-image">
+                            <img src={reorder} alt="admin-Dash-board"/>
+                        </div>
+                    ):null
+                }
+               
             
                 <img src={logo} alt="logo" className="logo-image"/>
 
@@ -23,8 +29,7 @@ const NavBar=({currentUser})=> {
                     <Link to="#"  className="nav-link">SAU</Link>
                     <Link to="#"  className="nav-link">TAU</Link>
                     <Link to="#"  className="nav-link">About Us</Link>
-                    <Link to="#"  className="nav-link">Contact Us</Link>
-                    <Link to="/signin"  className="nav-link">SignIn</Link>
+                    <Link to="/signin"  className="nav-link">Sign-In</Link>
                     <img src={user} alt="log-out" className="logout-image"/>
             </div>
            
@@ -32,9 +37,9 @@ const NavBar=({currentUser})=> {
     )
 }
 
-const mapStateToProps=({user:{currentUser}})=>{
+const mapStateToProps=({user:{info}})=>{
     return{
-        currentUser
+        info
     }
 }
 export default connect(mapStateToProps)(NavBar)

@@ -1,9 +1,12 @@
 import React, { Component } from 'react'
 import '../CSS/root/signUp.css'
+import Api from '.././Api/Api'
+import {connect} from 'react-redux'
+import { setCurrentUserInfo} from './Actions/userAction'
 
 class SignUp extends Component {
     state={
-        email:'',
+        mail:'',
         username:'',
         password:'',
         confirmPassword:'',
@@ -18,14 +21,48 @@ class SignUp extends Component {
 
     handleSubmit=(e)=>{
         e.preventDefault()
-        console.log(this.state)
-        this.setState({
-            email:'',
-            username:'',
-            password:'',
-            confirmPassword:''
-        })
+        const {mail,username,password,confirmPassword}=this.state
+        if(password!==confirmPassword){
+            return(
+                console.log("passsword not match")
+            )
+        }
+        
+        const user={mail,username,password}
+        try{
+            const userType=mail.split('@')[1].split('.')[0];
+            if(userType==="st"){
+                Api.post('/student',user).then(
+                    response=>{
+                        console.log(response.data)
+                    }
+                )
+            }else if(userType==="th"){
+                Api.post('/teacher',user).then(
+                    response=>{
+                        console.log(response.data)
+                    }
+                )
+
+            }else if(userType==="ad"){
+                Api.post('/admin',user).then(
+                    response=>{
+                        console.log(response.data)
+                    }
+                )
+
+            }else{
+                return;
+            }
+            this.props.setCurrentUserInfo(user)
+            console.log(this.props.info)
+            
+        }catch(err){
+            console.log(err)
+        }
+
     }
+
     render() {
         return (
             <div className="sign-up">
@@ -35,7 +72,7 @@ class SignUp extends Component {
                     <form onSubmit={this.handleSubmit}>
                         <div className="inputs">
                             <label className="labels">S-mail</label>
-                            <input className="signInput" type="email" name="email" value={this.state.email} required onChange={this.handleChange}/>  
+                            <input className="signInput" type="email" name="mail" value={this.state.mail} required onChange={this.handleChange}/>  
                         </div>
 
                         <div className="inputs">
@@ -65,4 +102,17 @@ class SignUp extends Component {
     }
 }
 
-export default SignUp
+
+const mapDispatchToProps=dispatch=>{
+    return{
+        setCurrentUserInfo:user=>dispatch(setCurrentUserInfo(user))
+    }
+}
+
+const mapStateToProps=({user:{info}})=>{
+    return{
+        info
+    }
+}
+
+export default connect(mapStateToProps,mapDispatchToProps) (SignUp)

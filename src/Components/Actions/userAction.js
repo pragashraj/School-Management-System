@@ -1,4 +1,4 @@
-export const setCurrentUser=user=>({
-    type:"SET_CURRENT_USER",
+export const setCurrentUserInfo=user=>({
+    type:"SET_CURRENT_USER_INFO",
     payload:user
 })

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import '../CSS/root/login.css'
-
+// import Api from '../Api/Api'
 
 class Login extends Component {
     state={
@@ -16,9 +16,19 @@ class Login extends Component {
         })
     }
 
+    handleOptionChange=(e)=>{
+        this.setState({
+            profession:e.target.value
+        })
+    }
+
     handleSubmit=(e)=>{
         e.preventDefault()
-        console.log(this.state)
+        try{
+            
+        }catch(err){
+
+        }
     }
 
     render() {
@@ -40,8 +50,8 @@ class Login extends Component {
 
                         <div >
                             <label className="label">I'am a ? </label>
-                            <input type="radio" name="profession" required value="student" required onChange={this.handleChange}/>Student  <br></br>
-                            <input type="radio" name="profession" required value="teacher" required onChange={this.handleChange}/>Teacher  
+                            <input type="radio" name="profession"  value="student"  onChange={this.handleOptionChange}/>Student  <br></br>
+                            <input type="radio" name="profession"  value="teacher"  onChange={this.handleOptionChange}/>Teacher  
                         </div>
 
                         <div className="submit-btn">
