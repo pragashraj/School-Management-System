@@ -28,7 +28,12 @@ class SignUp extends Component {
             )
         }
         
-        const user={mail,username,password}
+        const user={
+            mail:mail,
+            username:username,
+            password:password,
+            type:mail.split('@')[1].split('.')[0]
+        }
         try{
             const userType=mail.split('@')[1].split('.')[0];
             if(userType==="st"){
@@ -55,7 +60,6 @@ class SignUp extends Component {
                 return;
             }
             this.props.setCurrentUserInfo(user)
-            console.log(this.props.info)
             
         }catch(err){
             console.log(err)
