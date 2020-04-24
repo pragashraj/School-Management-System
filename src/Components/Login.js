@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import '../CSS/root/login.css'
 import Api from '../Api/Api'
 import {connect} from 'react-redux'
-import {setCurrentUserInfo} from './Actions/userAction'
+import {setCurrentUserInfo,storeCurrentUserDetails} from './Actions/userAction'
 
 class Login extends Component {
     state={
@@ -11,6 +11,7 @@ class Login extends Component {
         type:'ad'
     }
 
+    
     handleChange=(e)=>{
         const {value,name}=e.target;
         this.setState({
@@ -37,7 +38,9 @@ class Login extends Component {
                             if(response.status===200){
                                 if(user.password===response.data.password){
                                     console.log("Login Success")
-                                    this.props.setCurrentUserInfo(user)
+                                    this.props.setCurrentUserInfo(user.type)
+                                    this.props.storeCurrentUserDetails(user)
+                                    this.props.handleRoute()
                                 }else{
                                     console.log("password not match")
                                 }
@@ -56,7 +59,8 @@ class Login extends Component {
                             if(response.status===200){
                                 if(user.password===response.data.password){
                                     console.log("Login Success")
-                                    this.props.setCurrentUserInfo(user)
+                                    this.props.setCurrentUserInfo(user.type)
+                                    this.props.storeCurrentUserDetails(user)
                                 }else{
                                     console.log("password not match")
                                 }
@@ -75,7 +79,8 @@ class Login extends Component {
                             if(response.status===200){
                                 if(user.password===response.data.password){
                                     console.log("Login Success")
-                                    this.props.setCurrentUserInfo(user)
+                                    this.props.setCurrentUserInfo(user.type)
+                                    this.props.storeCurrentUserDetails(user)
                                 }else{
                                     console.log("password not match")
                                 }
@@ -85,9 +90,17 @@ class Login extends Component {
                 )
             }
             
+
         }catch(err){
-            console.log(err)
+            console.log(err)            
         }
+
+        this.setState({
+            username:'',
+            password:'',
+            type:'ad'
+        })
+
     }
 
     render() {
@@ -127,14 +140,15 @@ class Login extends Component {
 
 const mapDispatchToProps=dispatch=>{
     return{
-        setCurrentUserInfo:user=>dispatch(setCurrentUserInfo(user))
+        setCurrentUserInfo:info=>dispatch(setCurrentUserInfo(info)),
+        storeCurrentUserDetails:user=>dispatch(storeCurrentUserDetails(user))
     }
 }
 
 
-const mapStateToProps=({user:{info}})=>{
+const mapStateToProps=({user:{userDetails}})=>{
     return{
-        info
+        userDetails
     }
 }
 

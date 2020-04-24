@@ -5,7 +5,8 @@ import Rootpage from './Pages/RootPage'
 import Home from './Pages/Home'
 import NavBar from './Components/NavBar'
 
-const App=()=> {
+
+const App=({info})=> {
   return (
     <BrowserRouter>
         <div className="App">
@@ -18,5 +19,6 @@ const App=()=> {
     </BrowserRouter>
   );
 }
+
 
 export default App;

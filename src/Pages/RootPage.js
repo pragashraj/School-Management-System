@@ -3,11 +3,15 @@ import '../CSS/root/RootPage.css'
 import Login from '../Components/Login'
 import SignUp from '../Components/SignUp'
 
-const RootPage=()=> {
+const RootPage=(props)=> {
+
+    const handleRoute=()=>{
+        props.history.push('/')
+    }
     return (
         <div className="root-page">
-            <Login/>
-            <SignUp/>
+            <Login handleRoute={handleRoute}/>
+            <SignUp handleRoute={handleRoute}/>
         </div>
     )
 }

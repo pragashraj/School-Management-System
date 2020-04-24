@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import '../CSS/root/signUp.css'
 import Api from '.././Api/Api'
 import {connect} from 'react-redux'
-import { setCurrentUserInfo} from './Actions/userAction'
+import { setCurrentUserInfo,storeCurrentUserDetails} from './Actions/userAction'
 
 class SignUp extends Component {
     state={
@@ -59,7 +59,15 @@ class SignUp extends Component {
             }else{
                 return;
             }
-            this.props.setCurrentUserInfo(user)
+            this.props.setCurrentUserInfo(user.type)
+            this.props.storeCurrentUserDetails(user)
+            this.props.handleRoute()
+            this.setState({
+                mail:'',
+                username:'',
+                password:'',
+                confirmPassword:'',
+            })
             
         }catch(err){
             console.log(err)
@@ -109,13 +117,14 @@ class SignUp extends Component {
 
 const mapDispatchToProps=dispatch=>{
     return{
-        setCurrentUserInfo:user=>dispatch(setCurrentUserInfo(user))
+        setCurrentUserInfo:info=>dispatch(setCurrentUserInfo(info)),
+        storeCurrentUserDetails:user=>dispatch(storeCurrentUserDetails(user))
     }
 }
 
-const mapStateToProps=({user:{info}})=>{
+const mapStateToProps=({user:{userDetails}})=>{
     return{
-        info
+        userDetails
     }
 }
 
