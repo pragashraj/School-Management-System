@@ -11,7 +11,6 @@
 
 .label{
     float: left;
-    color: white;
     font-weight: bolder;
     margin-left: 7%;
     margin-bottom: 5%;
@@ -44,11 +43,9 @@
 .submit-btn :hover{
     cursor: pointer;
     background-color: white;
-    opacity: 0.5;
     color: black;
 }
 
 fieldset{
-    background-color: silver;
-    opacity: 0.8;
+    background-color: #8662c7;
 }

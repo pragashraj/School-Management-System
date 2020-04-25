@@ -8,6 +8,8 @@ import reorder from '../assets/reorder.png'
 
 import {connect} from 'react-redux'
 import {signOut} from './Actions/userAction'
+
+
 import {setdashBoard} from './Actions/dashBoardAction'
 
 const NavBar=({info,signOut,setdashBoard})=> {  
@@ -19,11 +21,13 @@ const NavBar=({info,signOut,setdashBoard})=> {
                             <img src={reorder} alt="admin-Dash-board"/>
                         </div>
                     ):(  <div className="reorder-image">
-                            <img src={reorder} alt="admin-Dash-board" onClick={()=>console.log("clicked")}/>
+                            <img src={reorder} alt="admin-Dash-board" onClick={
+                                ()=>{
+                                    setdashBoard()
+                                }
+                            }/>
                          </div>)
                 }
-               
-            
                 <img src={logo} alt="logo" className="logo-image"/>
 
             <div className="nav-options">
@@ -47,6 +51,8 @@ const NavBar=({info,signOut,setdashBoard})=> {
                     
                     
             </div>
+
+           
            
         </div>
     )
@@ -54,7 +60,7 @@ const NavBar=({info,signOut,setdashBoard})=> {
 
 const mapStateToProps=({user:{info}})=>{
     return{
-        info
+        info,
     }
 }
 

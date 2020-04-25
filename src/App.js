@@ -4,13 +4,17 @@ import {BrowserRouter,Switch,Route} from 'react-router-dom'
 import Rootpage from './Pages/RootPage'
 import Home from './Pages/Home'
 import NavBar from './Components/NavBar'
+import {connect} from 'react-redux'
+import DashBoard from './Components/DashBoard'
 
-
-const App=({info})=> {
+const App=({hidden})=> {
   return (
     <BrowserRouter>
         <div className="App">
             <NavBar/>
+            {
+              hidden ? null:<DashBoard/>
+            }
             <Switch>
                 <Route exact path="/signin" component={Rootpage}/>
                 <Route  path="/" component={Home}/>
@@ -20,5 +24,9 @@ const App=({info})=> {
   );
 }
 
-
-export default App;
+const mapStateToProps=({dashBoard:{hidden}})=>{
+  return{
+      hidden
+  }
+}
+export default connect(mapStateToProps) (App);
