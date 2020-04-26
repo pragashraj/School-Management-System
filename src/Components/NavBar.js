@@ -9,7 +9,6 @@ import reorder from '../assets/reorder.png'
 import {connect} from 'react-redux'
 import {signOut} from './Actions/userAction'
 
-
 import {setdashBoard} from './Actions/dashBoardAction'
 
 const NavBar=({info,signOut,setdashBoard})=> {  
@@ -28,11 +27,12 @@ const NavBar=({info,signOut,setdashBoard})=> {
                             }/>
                          </div>)
                 }
+
                 <img src={logo} alt="logo" className="logo-image"/>
 
             <div className="nav-options">
                     <Link to="/" className="nav-link">Home</Link>
-                    <Link to="#"  className="nav-link">About Us</Link>
+                    <Link to="/about"  className="nav-link">About Us</Link>
 
                     {
                         info==="st" ? (<Link to="#"  className="nav-link">SAU</Link>):null
@@ -42,14 +42,13 @@ const NavBar=({info,signOut,setdashBoard})=> {
                         info==="th" ? (<Link to="#"  className="nav-link">TAU</Link>):null
                     }
 
-                    
                        
                     {
                         info==="ns"  ? (<Link to="/signin"  className="nav-link" >Sign-In</Link>)
                                      :(<img src={user} alt="log-out" className="logout-image" onClick={()=>signOut()}/>)
                     }
                     
-                    
+                   
             </div>
 
            

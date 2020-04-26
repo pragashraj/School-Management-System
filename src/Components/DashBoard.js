@@ -16,10 +16,10 @@ const DashBoard=()=> {
             </div>
 
             <div className="block-container">
-                <Card image={st} profession="Students" total="2408"/>
+                <Card image={st} profession="Students" />
             </div>
             <div className="block-container">
-                <Card image={th} profession="Teachers" total="0056"/>
+                <Card image={th} profession="Teachers" />
             </div>
 
             <div className="link-container">

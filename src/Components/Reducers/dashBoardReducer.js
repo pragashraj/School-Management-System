@@ -1,5 +1,8 @@
 const INITIAL_STATE={
-    hidden:true
+    hidden:true,
+    totalStudents:'2408',
+    totalTeachers:'0056',
+    totalEmployess:'25'
 }
 
 const dashBoardReducer=(state=INITIAL_STATE,action)=>{

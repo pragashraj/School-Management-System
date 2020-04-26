@@ -1,14 +1,35 @@
 import React from 'react'
 import '../CSS/Nav/dashBoard.css'
+import {connect} from 'react-redux'
+import {withRouter} from 'react-router-dom'
+import {setdashBoard} from './Actions/dashBoardAction'
 
-const Card=({image,profession,total})=> {
+const Card=({image,profession,totalStudents,totalTeachers,history,setdashBoard})=> {
+
     return (
-        <div className="card" onClick={()=>console.log("clicked")}>
+        <div className="card" onClick={()=>{
+            history.push('/studentControl')
+            setdashBoard()
+        }}>
             <h4>{profession}</h4>
             <img src={image} alt="block" className="block"/>
-            <p className="total">{total}</p>
+            {
+                profession==="Students" ? <p className="total">{totalStudents}</p>:<p className="total">{totalTeachers}</p>
+            }
         </div>
     )
 }
 
-export default Card
+const mapStateToProps=({dashBoard:{totalStudents,totalTeachers}})=>{
+    return{
+        totalStudents,
+        totalTeachers
+    }
+}
+
+const mapDispatchToProps=dispatch=>{
+    return{
+        setdashBoard:()=>dispatch(setdashBoard())
+    }
+}
+export default withRouter(connect(mapStateToProps,mapDispatchToProps)(Card))

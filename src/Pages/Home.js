@@ -6,7 +6,7 @@ import '../CSS/Home/home.css'
 
          <div className="home-page">
             <div className="head-block">
-
+                <h1>Home</h1>
             </div>
         </div>
 
