@@ -2,6 +2,7 @@ import React from 'react'
 import '../CSS/root/RootPage.css'
 import Login from '../Components/Login'
 import SignUp from '../Components/SignUp'
+import AddAccount from '../Components/ControlForms/AddAccount'
 
 const RootPage=(props)=> {
 
@@ -10,8 +11,11 @@ const RootPage=(props)=> {
     }
     return (
         <div className="root-page">
-            <Login handleRoute={handleRoute}/>
-            <SignUp handleRoute={handleRoute}/>
+            {
+                //<Login handleRoute={handleRoute}/>
+                //<SignUp handleRoute={handleRoute}/>
+            }
+            <AddAccount/>
         </div>
     )
 }

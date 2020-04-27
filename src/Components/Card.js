@@ -8,7 +8,7 @@ const Card=({image,profession,totalStudents,totalTeachers,history,setdashBoard})
 
     return (
         <div className="card" onClick={()=>{
-            history.push('/studentControl')
+            profession==="Students" ? history.push('/studentControl') : history.push('/teacherControl')       
             setdashBoard()
         }}>
             <h4>{profession}</h4>

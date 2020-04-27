@@ -7,6 +7,7 @@ import NavBar from './Components/NavBar'
 import {connect} from 'react-redux'
 import DashBoard from './Components/DashBoard'
 import StudentControl from './Pages/StudentControl'
+import TeacherControl from './Pages/TeacherControl'
 import About from './Pages/About'
 
 const App=({hidden})=> {
@@ -21,6 +22,7 @@ const App=({hidden})=> {
                 <Route exact path="/signin" component={Rootpage}/>
                 <Route exact path="/" component={Home}/>
                 <Route  exact path="/studentControl" component={StudentControl}/>
+                <Route  exact path="/teacherControl" component={TeacherControl}/>
                 <Route  exact path="/about" component={About}/>
             </Switch>
         </div>

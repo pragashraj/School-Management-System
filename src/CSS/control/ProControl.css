@@ -37,6 +37,9 @@
     margin-left: 3%;
     margin-top: 1%;
 }
+.pro-btn-container :hover{
+    cursor: pointer;
+}
 
 .pro-btn-container{
     width: 35%;
@@ -44,4 +47,11 @@
     margin-top: 4%;
     position: absolute;
     margin-left: 20%;
+}
+
+.pro-form-container{
+    width: 56%;
+    margin-left: 20%;
+    background-color: white;
+    margin-top: 2%;
 }
