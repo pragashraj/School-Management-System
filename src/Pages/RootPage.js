@@ -1,8 +1,7 @@
 import React from 'react'
 import '../CSS/root/RootPage.css'
-import Login from '../Components/Login'
-import SignUp from '../Components/SignUp'
 import AddAccount from '../Components/ControlForms/AddAccount'
+
 
 const RootPage=(props)=> {
 
@@ -15,7 +14,15 @@ const RootPage=(props)=> {
                 //<Login handleRoute={handleRoute}/>
                 //<SignUp handleRoute={handleRoute}/>
             }
-            <AddAccount/>
+            <div className="login-component">
+                <AddAccount title="Login" addAcc={false}/>
+            </div>
+
+            <div className="sign-up-component">
+                <AddAccount title="Sign Up" addAcc={true}/>
+            </div>
+            
+            
         </div>
     )
 }

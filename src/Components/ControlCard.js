@@ -1,6 +1,5 @@
 import React,{useState} from 'react'
 import '../CSS/control/ProControl.css'
-import DeleteAccount from './ControlForms/DeleteAccount'
 import AddAccount from './ControlForms/AddAccount'
 
 const ControlCard=({image,total})=> {
@@ -20,7 +19,6 @@ const ControlCard=({image,total})=> {
                 <div className="pro-btn-container">
                     <button name="view" className="pro-btn" onClick={()=>setType('view')}>View</button>
                     <button name="add" className="pro-btn" onClick={()=>setType('add')}>Add</button>
-                    <button name="delete" className="pro-btn" onClick={()=>setType('deleteBtn')}>Delete</button>
                 </div>
 
                 
@@ -29,9 +27,7 @@ const ControlCard=({image,total})=> {
             <div className="pro-form-container">
                 {
                     btnType==='view' ? null:(
-                        btnType==='add' ?  <AddAccount/>:(
-                            btnType==='deleteBtn' ? <DeleteAccount/> :null
-                        )
+                        btnType==='add' ?  <AddAccount title="Add" addAcc={true}/>:null
                     )
                 }
                 
