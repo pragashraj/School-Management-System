@@ -51,6 +51,11 @@
 
 .pro-form-container{
     width: 100%;
-    background-color: white;
     margin-top: 2%;
+}
+
+.pro-view-compo{
+    width:60%;
+    margin-left: 20%;
+    background-color: white;
 }

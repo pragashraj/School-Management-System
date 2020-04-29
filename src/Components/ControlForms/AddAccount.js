@@ -3,6 +3,7 @@ import '../../CSS/root/signUp.css'
 import Api from '../../Api/Api'
 import {connect} from 'react-redux'
 import {setCurrentUserInfo,storeCurrentUserDetails} from '../Actions/userAction'
+import {increseTotalOfStudent,increseTotalOfTeacher} from '../Actions/dashBoardAction'
 
 class AddAccount extends Component {
     state={
@@ -18,7 +19,7 @@ class AddAccount extends Component {
         })
     }
 
-    handleApi=({endpoint,user})=>{
+    handleLoginApi=(endpoint,user,type)=>{
         Api.get(endpoint).then(
             response=>{
                 if(response.data===""){
@@ -27,6 +28,10 @@ class AddAccount extends Component {
                     if(response.status===200){
                         if(user.password===response.data.password){
                             console.log("Login Success")
+                            this.props.storeCurrentUserDetails(user)
+                            this.props.setCurrentUserInfo(type)
+                            console.log(this.props.userDetails)
+                            this.props.handleRoute()  
                         }else{
                             console.log("password not match")
                         }
@@ -36,6 +41,19 @@ class AddAccount extends Component {
         )
     }
 
+    handleSignUpApi=(endpoint,user,type)=>{
+        Api.post(endpoint,user).then(response=>{
+            this.props.storeCurrentUserDetails(user)
+            this.props.setCurrentUserInfo(type)
+            if(type==="st"){
+                this.props.increseTotalOfStudent()
+            }if(type==="th"){
+                this.props.increseTotalOfTeacher()
+            }
+            this.props.handleRoute()                
+        })
+    }
+
     handleSubmit=(e)=>{
         e.preventDefault()
         const {mail,password,confirmPassword}=this.state
@@ -43,9 +61,10 @@ class AddAccount extends Component {
         const user={
             mail,
             username:mail.split('@')[0],
-            password,
-            type:mail.split('@')[1].split('.')[0]
+            password,      
         }
+
+        const  type=mail.split('@')[1].split('.')[0]
 
         if(this.props.addAcc){
             if(password!==confirmPassword){
@@ -54,22 +73,23 @@ class AddAccount extends Component {
                 )
             }
             try{
-                switch(user.type){
-                    case "st": return Api.post('/student',user).then(response=>{console.log(response.data)})
-                    case "th": return  Api.post('/teacher',user).then(response=>{console.log(response.data)})
-                    case "ad": return  Api.post('/admin',user).then(response=>{console.log(response.data)})
+                switch(type){
+                    case "st": return this.handleSignUpApi('/student',user,type)
+                    case "th": return  this.handleSignUpApi('/teacher',user,type)
+                    case "ad": return  this.handleSignUpApi('/admin',user,type)
                     default : return
                 }
+
             }catch(err){
                 console.log(err)
             }
-
+           
         }else{
             try{
-                switch(user.type){
-                    case "st": return this.handleApi('/studentByName/'+user.username,user)
-                    case "th": return this.handleApi('/teacherByName/'+user.username,user)
-                    case "ad": return  this.handleApi('/adminByName/'+user.username,user)
+                switch(type){
+                    case "st": return this.handleLoginApi('/studentByName/'+user.username,user,type)
+                    case "th": return this.handleLoginApi('/teacherByName/'+user.username,user,type)
+                    case "ad": return  this.handleLoginApi('/adminByName/'+user.username,user,type)
                     default : return
                 }
                
@@ -121,9 +141,15 @@ class AddAccount extends Component {
 const mapDispatchToProps=dispatch=>{
     return{
         setCurrentUserInfo:info=>dispatch(setCurrentUserInfo(info)),
-        storeCurrentUserDetails:user=>dispatch(storeCurrentUserDetails(user))
+        storeCurrentUserDetails:user=>dispatch(storeCurrentUserDetails(user)),
+        increseTotalOfStudent:()=>dispatch(increseTotalOfStudent()),
+        increseTotalOfTeacher:()=>dispatch(increseTotalOfTeacher())
     }
 }
 
-
-export default connect(null,mapDispatchToProps)(AddAccount)
+const mapStateToProps=({user:{userDetails}})=>{
+    return{
+        userDetails
+    }
+}
+export default connect(mapStateToProps,mapDispatchToProps)(AddAccount)

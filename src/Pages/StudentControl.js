@@ -1,12 +1,20 @@
 import React from 'react'
 import student from '../assets/student.png'
 import ControlCard from '../Components/ControlCard'
+import {connect} from 'react-redux'
 
-const StudentControl=()=> {
+const StudentControl=({totalStudents})=> {
     return (
         <div className="controlBlock">
-            <ControlCard image={student} total="2048"/>
+            <ControlCard image={student} total={totalStudents} pro="student"/>
         </div>
     )
 }
-export default StudentControl
+
+
+const mapStateToProps=({dashBoard:{totalStudents}})=>{
+    return{
+        totalStudents
+    }
+}
+export default connect(mapStateToProps)(StudentControl)

@@ -1,9 +1,13 @@
 import React,{useState} from 'react'
 import '../CSS/control/ProControl.css'
 import AddAccount from './ControlForms/AddAccount'
+import DetailView from './ControlForms/DetailView'
 
-const ControlCard=({image,total})=> {
+const ControlCard=({image,total,pro})=> {
     const [btnType,setType]=useState('')
+    const handleRoute=()=>{
+       setType('')
+    }
     return (
         <div className="controlCard">
             <div className="pro-block">
@@ -26,8 +30,12 @@ const ControlCard=({image,total})=> {
 
             <div className="pro-form-container">
                 {
-                    btnType==='view' ? null:(
-                        btnType==='add' ?  <AddAccount title="Add" addAcc={true}/>:null
+                    btnType==='view' ? (
+                        <div className="pro-view-compo">
+                             <DetailView image={image} pro={pro}/>
+                        </div>
+                        ):(
+                        btnType==='add' ?  <AddAccount title="Add" addAcc={true} handleRoute={handleRoute}/>:null
                     )
                 }
                 
