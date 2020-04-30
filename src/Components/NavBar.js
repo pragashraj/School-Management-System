@@ -5,27 +5,47 @@ import {Link} from 'react-router-dom'
 import user from '../assets/users.png'
 import logo from '../assets/logo.png'
 import reorder from '../assets/reorder.png'
+import profile from '.././assets/profile.png'
 
 import {connect} from 'react-redux'
 import {signOut} from './Actions/userAction'
 
 import {setdashBoard} from './Actions/dashBoardAction'
+import {setAccView} from './Actions/AccAction'
 
-const NavBar=({info,signOut,setdashBoard})=> {  
+const NavBar=({info,signOut,setdashBoard,setAccView})=> {  
+
+   const handleAccView=()=>{
+        return(
+            <div className="reorder-image">
+                <img src={profile} alt="admin-Dash-board" onClick={
+                    ()=>{
+                        setAccView()
+                    }
+                } />
+            </div>
+        )
+    }
     return (
         <div className="nav-bar">
                 {
                     info==="ad" ? (
                         <div className="reorder-image">
-                            <img src={reorder} alt="admin-Dash-board"/>
-                        </div>
-                    ):(  <div className="reorder-image">
                             <img src={reorder} alt="admin-Dash-board" onClick={
                                 ()=>{
                                     setdashBoard()
                                 }
-                            }/>
-                         </div>)
+                            } />
+                        </div>
+                    ):null
+                }
+
+                {
+                    info==='st' ? (
+                        handleAccView()
+                    ): (
+                        info==='th' ? (handleAccView()):null
+                    )
                 }
 
                 <img src={logo} alt="logo" className="logo-image"/>
@@ -35,7 +55,7 @@ const NavBar=({info,signOut,setdashBoard})=> {
                     <Link to="/about"  className="nav-link">About Us</Link>
 
                     {
-                        info==="st" ? (<Link to="#"  className="nav-link">SAU</Link>):null
+                        info==="st" ? (<Link to="/sau"  className="nav-link">SAU</Link>):null
                     }
 
                     {
@@ -66,7 +86,8 @@ const mapStateToProps=({user:{info}})=>{
 const mapDispatchToProps=dispatch=>{
     return{
         signOut:()=>dispatch(signOut()),
-        setdashBoard:()=>dispatch(setdashBoard())
+        setdashBoard:()=>dispatch(setdashBoard()),
+        setAccView:()=>dispatch(setAccView())
     }
 }
 export default connect(mapStateToProps,mapDispatchToProps)(NavBar)

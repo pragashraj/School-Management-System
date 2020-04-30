@@ -1,0 +1,56 @@
+.account{
+    width: 25%;
+    height: 550px;
+    background-color: rgb(255, 255, 255);
+    position: absolute;
+}
+
+.aac-header{
+    width: 90%;
+    height: 15%;
+    margin-left: 5%;
+
+}
+
+.acc-image-container{
+    width: 30%;
+    height: 100%;
+}
+
+.acc-image{
+    width: 89%;
+    height: 80%;
+    float: left;
+    
+}
+.acc-title{
+    margin-left: 15%;
+    font-size: 1.5em;
+    font-weight: 500;
+}
+
+.acc-field{
+    margin-top: 2%;
+}
+
+.acc-block{
+    width: 90%;
+    margin-left: 5%;
+    height: 50%;
+    position: absolute;
+    margin-top: 15%;
+}
+
+.acc-block-info{
+    font-size: 1.6em;
+}
+
+.acc-link{
+    background-color: rgb(194, 189, 189);
+    width: 100%;
+    height: 8%;
+}
+
+.acc-link-title{
+    margin-left: 25%;
+}

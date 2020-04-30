@@ -49,3 +49,8 @@
 .nav-options :hover{
     cursor: pointer;
 }
+
+.acc-image{
+    width: 2%;
+    height: 2px;
+}
