@@ -5,7 +5,6 @@ import {withRouter} from 'react-router-dom'
 import {setdashBoard} from './Actions/dashBoardAction'
 
 const Card=({image,profession,totalStudents,totalTeachers,history,setdashBoard})=> {
-
     return (
         <div className="card" onClick={()=>{
             profession==="Students" ? history.push('/studentControl') : history.push('/teacherControl')       
@@ -14,7 +13,7 @@ const Card=({image,profession,totalStudents,totalTeachers,history,setdashBoard})
             <h4>{profession}</h4>
             <img src={image} alt="block" className="block"/>
             {
-                profession==="Students" ? <p className="total">{totalStudents}</p>:<p className="total">{totalTeachers}</p>
+                 profession==="Students" ? <p className="total">{totalStudents}</p>:<p className="total">{totalTeachers}</p>
             }
         </div>
     )

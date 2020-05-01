@@ -31,6 +31,7 @@
 
 .acc-field{
     margin-top: 2%;
+    background-color: silver;
 }
 
 .acc-block{
@@ -39,18 +40,58 @@
     height: 50%;
     position: absolute;
     margin-top: 15%;
+    background-color: silver;
+}
+
+.acc-block-img-container{
+    width: 25%;
+    height: 55%;
+    float: left;
+}
+
+.acc-block-img{
+    width: 100%;
+    height: 100%;
 }
 
 .acc-block-info{
-    font-size: 1.6em;
+    font-size: 1.2em;
+    margin-left: 10%;
+    color: white;
+    font-weight: 500;
 }
 
 .acc-link{
-    background-color: rgb(194, 189, 189);
+    background-color: rgb(255, 255, 255);
     width: 100%;
     height: 8%;
+    margin-top: 10%;
+}
+
+.acc-link :hover{
+    cursor: pointer;
 }
 
 .acc-link-title{
     margin-left: 25%;
+}
+
+.acc-btn{
+    margin-top: 5%;
+    width: 100%;
+    height: 20%;
+}
+
+.acc-btn-title{
+    width: 100%;
+    height: 100%;
+    border-width: 0;
+    background-color: green;
+    color: white;
+}
+
+.acc-btn :hover{
+    cursor: pointer;
+    background-color: white;
+    color: black;
 }

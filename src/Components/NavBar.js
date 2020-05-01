@@ -26,17 +26,23 @@ const NavBar=({info,signOut,setdashBoard,setAccView})=> {
             </div>
         )
     }
+
+    const handleDashBoard=()=>{
+        return(
+            <div className="reorder-image">
+                <img src={reorder} alt="admin-Dash-board" onClick={
+                    ()=>{
+                        setdashBoard()
+                    }
+                } />
+            </div>
+        )
+    }
     return (
         <div className="nav-bar">
                 {
                     info==="ad" ? (
-                        <div className="reorder-image">
-                            <img src={reorder} alt="admin-Dash-board" onClick={
-                                ()=>{
-                                    setdashBoard()
-                                }
-                            } />
-                        </div>
+                       handleDashBoard()
                     ):null
                 }
 
@@ -44,7 +50,7 @@ const NavBar=({info,signOut,setdashBoard,setAccView})=> {
                     info==='st' ? (
                         handleAccView()
                     ): (
-                        info==='th' ? (handleAccView()):null
+                        info==='th' ? handleAccView():handleAccView()
                     )
                 }
 
@@ -55,7 +61,7 @@ const NavBar=({info,signOut,setdashBoard,setAccView})=> {
                     <Link to="/about"  className="nav-link">About Us</Link>
 
                     {
-                        info==="st" ? (<Link to="/sau"  className="nav-link">SAU</Link>):null
+                        info==="ns" ? (<Link to="/sau"  className="nav-link">SAU</Link>):null
                     }
 
                     {

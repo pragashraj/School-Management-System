@@ -1,4 +1,5 @@
 import React from 'react'
+// import MoveStuffAround from '../Components/MoveStuffAround'
 
  const Home=()=> {
 
@@ -6,7 +7,9 @@ import React from 'react'
 
          <div className="home-page">
             <div className="home-head-block">
-                <div className="home-head"></div>
+                <div className="home-head">
+                    
+                </div>
             </div>
 
             <div className="home-statement-block">

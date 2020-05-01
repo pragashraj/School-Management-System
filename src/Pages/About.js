@@ -1,6 +1,7 @@
 import React from 'react'
 import '../CSS/About/about.css'
 
+
  const About=()=> {
   
     return (
@@ -31,6 +32,8 @@ import '../CSS/About/about.css'
                     </p>
                 </div>
             </div>
+
+          
             
         </div>
     )
