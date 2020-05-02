@@ -11,6 +11,7 @@ import StudentControl from './Pages/StudentControl'
 import TeacherControl from './Pages/TeacherControl'
 import About from './Pages/About'
 import StudentAccessUnit from './Pages/StudentAccessUnit'
+import TeacherAccessUnit from './Pages/TeacherAccessUnit'
 import Account from './Components/Account'
 
 const App=({hidden,hideAcc})=> {
@@ -32,6 +33,7 @@ const App=({hidden,hideAcc})=> {
                 <Route  exact path="/teacherControl" component={TeacherControl}/>
                 <Route  exact path="/about" component={About}/>
                 <Route exact path="/sau" component={StudentAccessUnit}/>
+                <Route exact path="/tau" component={TeacherAccessUnit}/>
             </Switch>
         </div>
     </BrowserRouter>
