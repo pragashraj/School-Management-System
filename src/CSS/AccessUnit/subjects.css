@@ -1,0 +1,46 @@
+.subjects{
+    width: 100%;
+    /* background-color: aqua; */
+    height: 95%;
+}
+
+.sub-image-container{
+    /* background-color: blue; */
+    width: 30%;
+    height: 30%;
+    float: left;
+}
+
+.sub-image{
+    width: 80%;
+    margin-top: 2%;
+    height: 90%;
+}
+
+.sub-intro-container{
+    width: 70%;
+    height: 40%;
+    margin-left: 30%;
+}
+
+.sub-intro{
+    padding: 3%;
+}
+
+.sub-btn-container{
+    width: 45%;
+    background-color: brown;
+    height: 20%;
+    margin-top: 8%;
+    float: left;
+    margin-left: 1%;
+}
+
+.sub-btn-text{
+    color: white;
+    font-size: 2em;
+    margin-left: 35%;
+}
+.sub-btn-container :hover{
+    cursor: pointer;
+}

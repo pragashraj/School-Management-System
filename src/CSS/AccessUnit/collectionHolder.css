@@ -1,0 +1,13 @@
+.collection-holder{
+    background-color: white;
+    width: 65%;
+    height: 500px;
+    margin-left: 1%;
+    margin-top: 1%;
+}
+
+.holder{
+    width: 90%;
+    height: 100%;
+    margin-left: 5%;
+}

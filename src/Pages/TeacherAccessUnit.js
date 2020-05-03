@@ -3,7 +3,7 @@ import SideBar from '../Components/AccessUnit/SideBar'
 
 class TeacherAccessUnit extends Component {
     state={
-        titles:["Grades","Accessories","Upcoming Events","Annual Works"]
+        titles:["Grades","Accessories","Upcoming_Events","Annual_Works"]
     }
     render() {
         return (

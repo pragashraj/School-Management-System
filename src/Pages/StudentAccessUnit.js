@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import SideBar from '../Components/AccessUnit/SideBar'
+import CollectionHolder from '../Components/AccessUnit/CollectionHolder'
+import {connect} from 'react-redux'
 
 class StudentAccessUnit extends Component {
     state={
@@ -9,10 +11,17 @@ class StudentAccessUnit extends Component {
         return (
             <div className="student-access-unit" >
                 <SideBar titles={this.state.titles}/>
-            </div>
+                {
+                    this.props.collectionHolder ? <CollectionHolder/> : null
+                }
+            </div>          
         )
     }
 }
+const mapStateToProps=({content:{collectionHolder}})=>{
+    return{
+        collectionHolder
+    }
+}
 
-
-export default StudentAccessUnit
+export default connect(mapStateToProps)(StudentAccessUnit)

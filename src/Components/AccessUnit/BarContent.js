@@ -4,7 +4,7 @@ import Content from './Content'
 
 import {connect} from 'react-redux'
 
-const BarContent=({barTitle,info,student})=> {
+const BarContent=({barTitle,student,common,teacher})=> {
 
     const renderContent=()=>{
         switch(barTitle){
@@ -17,18 +17,31 @@ const BarContent=({barTitle,info,student})=> {
             
             case "Accessories":
                 return(
-                    student.Accessories.map((value,index)=>{
+                    common.Accessories.map((value,index)=>{
                             return <Content key={index} contentTitle={value}/>
                     })           
                 )
             
             case "Upcoming_Events":
                 return(
-                    student.Upcoming_Events.map((value,index)=>{
+                    common.Upcoming_Events.map((value,index)=>{
                             return <Content key={index} contentTitle={value}/>
                     })           
                 )
+            
+            case "Annual_Works":
+                return(
+                    teacher.Annual_Works.map((value,index)=>{
+                        return <Content key={index} contentTitle={value}/>
+                    })
+                )
 
+            case "Grades":
+                return(
+                    teacher.Grades.map((value,index)=>{
+                        return <Content key={index} contentTitle={value}/>
+                    })
+                )
             default : return null
         }
     }
@@ -42,10 +55,11 @@ const BarContent=({barTitle,info,student})=> {
     )
 }
 
-const mapStateToProps=({content:{student},user:{info}})=>{
+const mapStateToProps=({content:{student,common,teacher}})=>{
     return{
         student,
-        info
+        common,
+        teacher
     }
 }
 
