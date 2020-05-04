@@ -1,12 +1,11 @@
 import React from 'react'
 import '../../CSS/AccessUnit/sideBar.css'
 import {connect} from 'react-redux'
-import {setCollectionHolder,setContentType} from '../Actions/contentAction'
+import {setContent} from '../Actions/contentAction'
 
-const Content = ({contentTitle,setCollectionHolder}) => {
+const Content = ({type,contentTitle,setContent}) => {
     const handleBtnClick=()=>{
-        setCollectionHolder()
-        setContentType(contentTitle)
+        setContent({type,contentTitle})
     }
     return (
         <div className="content">
@@ -21,8 +20,7 @@ const Content = ({contentTitle,setCollectionHolder}) => {
 
 const mapDispatchToProps=dispatch=>{
     return{
-        setCollectionHolder:()=>dispatch(setCollectionHolder()),
-        setContentType:(title)=>dispatch(setContentType(title))
+        setContent:contents=>dispatch(setContent(contents))
     }
 }
 export default connect(null,mapDispatchToProps)(Content)

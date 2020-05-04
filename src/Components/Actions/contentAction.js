@@ -1,8 +1,4 @@
-export const setCollectionHolder=()=>({
-    type:"SET_COLLECTION_HOLDER"
-})
-
-export const setContentType=(title)=>({
-    type:"SET_CONTENT_TYPE",
-    payload:title
+export const setContent=contents=>({
+    type:"SET_CONTENT",
+    payload:contents
 })

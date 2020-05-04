@@ -1,0 +1,58 @@
+.accessories{
+    width: 100%;
+    height: 100%;
+    /* background-color: aqua; */
+}
+
+/*******************************************************/
+
+.time-table-continer{
+    width: 100%;
+    height: 100%;
+}
+.time-table-img{
+    width: 90%;
+    height: 90%;
+    margin-left: 5%;
+    margin-top: 2%;
+}
+
+/*******************************************************/
+
+.result-container{
+    width: 100%;
+    height: 100%;
+}
+
+.topic-text-con{
+    padding: 2%;
+}
+
+.topic-text{
+    font-size: 1.2em;
+    margin-left: 8%;
+    font-weight: bold;
+}
+
+.select-topics{
+    width:80%;
+    margin-left: 10%;
+    height: 8%;
+    font-size: 1.2em;
+}
+
+.result-block{
+    /* background-color: aqua; */
+    width: 80%;
+    height: 60%;
+    margin-left: 10%;
+    margin-top: 3%;
+}
+
+.result-title{
+    font-size: 1.2em;
+}
+
+.result-field-set{
+    height: 80%;
+}

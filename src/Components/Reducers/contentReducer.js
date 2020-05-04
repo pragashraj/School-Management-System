@@ -13,22 +13,18 @@ const INITIAL_STATE={
         Annual_Works:["Exam"]
     },
 
-    collectionHolder:false,
-    contentTitle:"maths"
+    contents:{
+        type:'Subjects',
+        contentTitle:'Maths'
+    }
 }
 
 const contentReducer=(state=INITIAL_STATE,action)=>{
     switch(action.type){
-        case "SET_COLLECTION_HOLDER":
+        case "SET_CONTENT":
             return{
                 ...state,
-                collectionHolder:!state.collectionHolder
-            }
-        case "SET_CONTENT_TYPE":
-           
-            return{
-                ...state,
-                contentTitle:action.payload,
+                contents:action.payload,
             }
         default: return state
     }

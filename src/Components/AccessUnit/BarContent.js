@@ -11,35 +11,35 @@ const BarContent=({barTitle,student,common,teacher})=> {
             case "Subjects":
                 return(
                     student.Subjects.map((value,index)=>{
-                        return <Content key={index} contentTitle={value}/>
+                        return <Content key={index} contentTitle={value} type={barTitle}/>
                     })           
                 )
             
             case "Accessories":
                 return(
                     common.Accessories.map((value,index)=>{
-                            return <Content key={index} contentTitle={value}/>
+                            return <Content key={index} contentTitle={value} type={barTitle}/>
                     })           
                 )
             
             case "Upcoming_Events":
                 return(
                     common.Upcoming_Events.map((value,index)=>{
-                            return <Content key={index} contentTitle={value}/>
+                            return <Content key={index} contentTitle={value} type={barTitle}/>
                     })           
                 )
             
             case "Annual_Works":
                 return(
                     teacher.Annual_Works.map((value,index)=>{
-                        return <Content key={index} contentTitle={value}/>
+                        return <Content key={index} contentTitle={value} type={barTitle}/>
                     })
                 )
 
             case "Grades":
                 return(
                     teacher.Grades.map((value,index)=>{
-                        return <Content key={index} contentTitle={value}/>
+                        return <Content key={index} contentTitle={value} type={barTitle}/>
                     })
                 )
             default : return null
