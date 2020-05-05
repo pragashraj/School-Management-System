@@ -1,0 +1,17 @@
+.grades{
+    height: 100%;
+}
+
+.content-text-con{
+    width: 30%;
+    float: left;
+}
+
+.content-text{
+    font-size: 1.3em;
+}
+
+.content-field-con{
+    padding: 4%;
+}
+

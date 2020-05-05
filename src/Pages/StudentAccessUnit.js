@@ -10,7 +10,7 @@ class StudentAccessUnit extends Component {
         return (
             <div className="student-access-unit" >
                 <SideBar titles={this.state.titles}/>
-                <CollectionHolder/> 
+                <CollectionHolder user="st"/> 
             </div>          
         )
     }

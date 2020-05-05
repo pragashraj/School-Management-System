@@ -1,7 +1,7 @@
 .account{
-    width: 25%;
+    width: 28%;
     height: 550px;
-    background-color: #8662c7;
+    background-color: white;
     position: absolute;
     margin-top: 0.2%;
 }
@@ -61,18 +61,6 @@
     font-weight: 500;
 }
 
-.acc-link{
-    background-color: chocolate;
-    width: 90%;
-    height: 12%;
-    margin-top: 8%;
-    color: white;
-    margin-left: 5%;
-}
-
-.acc-link :hover{
-    cursor: pointer;
-}
 
 .acc-link-title{
     margin-left: 30%;
@@ -89,13 +77,13 @@
     width: 100%;
     height: 100%;
     border-width: 0;
-    background-color: white;
-    color: green;
+    background-color: green;
+    color: white;
     font-size: 1.2em;
 }
 
 .acc-btn :hover{
     cursor: pointer;
-    background-color: green;
-    color: white;
+    background-color: white;
+    color: green;
 }

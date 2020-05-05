@@ -3,8 +3,10 @@ import '../../CSS/AccessUnit/collectionHolder.css'
 import Subjects from './collection/Subjects'
 import {connect} from 'react-redux'
 import Accessories from './collection/Accessories'
+import UpcomingEvents from './collection/UpcomingEvents'
+import Grades from './collection/Grades'
 
-const CollectionHolder = ({contents}) => {
+const CollectionHolder = ({contents,user}) => {
 
     const renderCollection=()=>{
         switch(contents.type){
@@ -16,14 +18,15 @@ const CollectionHolder = ({contents}) => {
                 return <Accessories accessoriesTitle={contents.contentTitle}/>
 
             case "Upcoming_Events":
-                return
+                return <UpcomingEvents eventTitle={contents.contentTitle}/>
 
-            case "Grades":
-                return
-            
+            case "Grades": return <Grades/>
+                
             case "Annual_Works":return
 
-            default : return <Subjects/>
+            default : return(
+                user==="st" ? <Subjects subjectTitle={"Maths"}/> : <Grades/>
+            )
         }
     }
     return (
@@ -31,6 +34,9 @@ const CollectionHolder = ({contents}) => {
             <div className="holder">
                 {
                     renderCollection()
+                }
+                {
+                    console.log(contents.type)
                 }
             </div>
         </div>

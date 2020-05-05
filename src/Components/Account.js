@@ -31,16 +31,11 @@ const Account=({info})=> {
                 <pre className="acc-block-info">Password : 123456 </pre>
                 <pre className="acc-block-info">House    : Green </pre>
 
-                <div className="acc-link">
-                    <p className="acc-link-title">Link 01 For St/Th</p>
-                </div>
-
-                <div className="acc-link">
-                    <p className="acc-link-title">Link 01 For St/Th</p>
-                </div>
-
                 <div className="acc-btn">
                     <button className="acc-btn-title" onClick={()=>console.log("click")} >Update</button>
+                </div>
+                <div className="acc-btn">
+                    <button className="acc-btn-title" onClick={()=>console.log("click")} >Add Info</button>
                 </div>
             </div>
         </div>

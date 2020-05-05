@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import SideBar from '../Components/AccessUnit/SideBar'
+import CollectionHolder from '../Components/AccessUnit/CollectionHolder'
 
 class TeacherAccessUnit extends Component {
     state={
@@ -9,6 +10,7 @@ class TeacherAccessUnit extends Component {
         return (
             <div className="teacher-access-unit">
                 <SideBar titles={this.state.titles}/> 
+                <CollectionHolder user="th"/>
             </div>
         )
     }

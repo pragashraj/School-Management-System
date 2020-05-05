@@ -14,8 +14,8 @@ const INITIAL_STATE={
     },
 
     contents:{
-        type:'Subjects',
-        contentTitle:'Maths'
+        type:'',
+        contentTitle:''
     }
 }
 
