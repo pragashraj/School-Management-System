@@ -30,7 +30,6 @@ class AddAccount extends Component {
                             console.log("Login Success")
                             this.props.storeCurrentUserDetails(user)
                             this.props.setCurrentUserInfo(type)
-                            console.log(this.props.userDetails)
                             this.props.handleRoute()  
                         }else{
                             console.log("password not match")

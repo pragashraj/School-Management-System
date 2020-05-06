@@ -1,6 +1,6 @@
 import React from 'react'
 import '../CSS/Nav/navBar.css'
-import {Link} from 'react-router-dom'
+import {Link,withRouter} from 'react-router-dom'
 
 import user from '../assets/users.png'
 import logo from '../assets/logo.png'
@@ -13,7 +13,7 @@ import {signOut} from './Actions/userAction'
 import {setdashBoard} from './Actions/dashBoardAction'
 import {setAccView} from './Actions/AccAction'
 
-const NavBar=({info,signOut,setdashBoard,setAccView})=> {  
+const NavBar=({info,signOut,setdashBoard,setAccView,history})=> {  
 
    const handleAccView=()=>{
         return(
@@ -61,7 +61,7 @@ const NavBar=({info,signOut,setdashBoard,setAccView})=> {
                     <Link to="/about"  className="nav-link">About Us</Link>
 
                     {
-                        info==="ns" ? (<Link to="/sau"  className="nav-link">SAU</Link>):null
+                        info==="st" ? (<Link to="/sau"  className="nav-link">SAU</Link>):null
                     }
 
                     {
@@ -71,7 +71,13 @@ const NavBar=({info,signOut,setdashBoard,setAccView})=> {
                        
                     {
                         info==="ns"  ? (<Link to="/signin"  className="nav-link" >Sign-In</Link>)
-                                     :(<img src={user} alt="log-out" className="logout-image" onClick={()=>signOut()}/>)
+                                     :(<img src={user} alt="log-out" className="logout-image" onClick={
+                                                ()=>{
+                                                    signOut()
+                                                    history.push('/')
+                                                } 
+                                            }/>
+                                      )
                     }
                     
                    
@@ -96,4 +102,4 @@ const mapDispatchToProps=dispatch=>{
         setAccView:()=>dispatch(setAccView())
     }
 }
-export default connect(mapStateToProps,mapDispatchToProps)(NavBar)
+export default withRouter(connect(mapStateToProps,mapDispatchToProps)(NavBar))

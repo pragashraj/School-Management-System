@@ -5,6 +5,7 @@ import {connect} from 'react-redux'
 import Accessories from './collection/Accessories'
 import UpcomingEvents from './collection/UpcomingEvents'
 import Grades from './collection/Grades'
+import AccountUpdate from './Account/AccountUpdate'
 
 const CollectionHolder = ({contents,user}) => {
 
@@ -23,6 +24,8 @@ const CollectionHolder = ({contents,user}) => {
             case "Grades": return <Grades/>
                 
             case "Annual_Works":return
+
+            case "Account_Update": return <AccountUpdate/>
 
             default : return(
                 user==="st" ? <Subjects subjectTitle={"Maths"}/> : <Grades/>
