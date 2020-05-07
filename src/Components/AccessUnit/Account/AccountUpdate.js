@@ -9,6 +9,15 @@ class AccountUpdate extends Component {
         password:''
     }
 
+    componentDidMount(){
+        const details=this.props.userDetails
+        this.setState({
+            username:details.username,
+            email:details.mail,
+            password:details.password
+        })
+    }
+
     handleTextChange=(e)=>{
         const {value,name}=e.target
         this.setState({
@@ -16,16 +25,20 @@ class AccountUpdate extends Component {
         })
     }
 
+    handleBtnPress=()=>{
+        console.log("btn Pressed")
+    }
+
     render(){
         return (
             <div className="account-update">
-                <AccountForm userDetails={this.props.userDetails} handleTextChange={this.handleTextChange}/>
-                <p>{this.state.username}</p>
-                <p>{this.state.email}</p>
-                <p>{this.state.password}</p>
-                {
-                    console.log(this.props.userDetails)                  
-                }
+                <h2 style={{marginLeft:'35%',paddingTop:'2%'}}>Update Your Account</h2>
+                <AccountForm 
+                    userDetails={this.props.userDetails} 
+                    handleTextChange={this.handleTextChange}
+                    btnTitle="Update"
+                    handleBtnPress={this.handleBtnPress} 
+                />
             </div>
         )
     }

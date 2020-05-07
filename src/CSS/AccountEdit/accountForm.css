@@ -1,0 +1,50 @@
+.account-form{
+    height: 100%;
+    padding-top: 5%;
+}
+
+.acc-input-container{
+    margin-left: 18%;
+    padding-top: 5%;
+    margin-bottom: 2%;
+}
+
+.acc-input-label-container{
+    float: left;
+    width: 20%;
+}
+
+.acc-input-label{
+    font-weight: bold;
+    font-size: 1.3em;
+}
+
+.acc-input-input{
+    margin-left: 5%;
+    width: 50%;
+    font-size: 1.1em;
+}
+
+.acc-form-btn{
+    width: 100%;
+    height: 100px;
+}
+
+.form-btn{
+    background-color: chocolate;
+    width: 20%;
+    height: 30%;
+    margin-top: 5%;
+    float: right;
+    margin-right: 20%;
+    color: white;
+    border-width: 0ch;
+}
+
+.acc-form-btn :hover{
+    background-color: white;
+    color: chocolate;
+    cursor: pointer;
+    border-width: 0.01ch;
+    border-color: aqua;
+}

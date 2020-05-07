@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import '../../../CSS/AccountEdit/accountForm.css'
 
 class AccountForm extends Component {
     handleChange=(e)=>{
@@ -6,12 +7,13 @@ class AccountForm extends Component {
     }
 
     renderInput=(value)=>{
-        return(
-            <div className="">
-                <label>{value} : </label>
-                <input type="text" name={value} defaultValue="name" onChange={this.handleChange}/>
-            </div>
-        )
+        const details=this.props.userDetails
+        switch(value){
+            case "username":return <input type="text" name={value} defaultValue={details.username} className="acc-input-input" onChange={this.handleChange}/>
+            case "email":return <input type="text" name={value} defaultValue={details.mail} className="acc-input-input" onChange={this.handleChange}/>
+            case "password":return <input type="text" name={value} defaultValue={details.password} className="acc-input-input" onChange={this.handleChange}/>
+            default :return null
+        }
     }
 
      renderInputs=(inputs)=>{
@@ -19,7 +21,10 @@ class AccountForm extends Component {
                 inputs.map(
                     (value,index)=>{
                         return(
-                            <div className="" key={index}>
+                            <div className="acc-input-container" key={index}>
+                                <div className="acc-input-label-container">
+                                    <label className="acc-input-label">{value.toUpperCase()}  </label>
+                                </div>
                                 {
                                     this.renderInput(value)
                                 }
@@ -49,6 +54,9 @@ class AccountForm extends Component {
                 {
                     this.renderForm()
                 }
+                <div className="acc-form-btn">
+                    <button className="form-btn" onClick={this.props.handleBtnPress}>{this.props.btnTitle}</button>
+                </div>
             </div>
         )
     }
