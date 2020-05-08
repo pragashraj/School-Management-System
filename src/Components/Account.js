@@ -1,4 +1,4 @@
-import React from 'react'
+import React  from 'react'
 import userAcc from '.././assets/userAcc.png'
 import '../CSS/AccessUnit/account.css'
 import st from '../assets/st.png'
@@ -7,6 +7,7 @@ import th from '../assets/th.png'
 import {connect} from 'react-redux'
 import {setContent} from './Actions/contentAction'
 import {setAccView} from './Actions/AccAction'
+
 
 const Account=({info,setContent,setAccView,userDetails})=> {
 
@@ -37,17 +38,13 @@ const Account=({info,setContent,setAccView,userDetails})=> {
                 <pre className="acc-block-info">Username : {userDetails.username}</pre>
                 <pre className="acc-block-info">Email    : {userDetails.mail}</pre>
                 <pre className="acc-block-info">Password : {userDetails.password} </pre>
-                <pre className="acc-block-info">House    : Green </pre>
 
                 <div className="acc-btn">
                     <button className="acc-btn-title" onClick={()=>handleBtnPress("Account_Update")} >Update</button>
                 </div>
                 <div className="acc-btn">
-                    <button className="acc-btn-title" onClick={()=>console.log("click")} >Add Info</button>
+                    <button className="acc-btn-title" onClick={()=>handleBtnPress("Account_Info")} >Add Info</button>
                 </div>
-                {
-                    console.log({userDetails})
-                }
             </div>
         </div>
     )

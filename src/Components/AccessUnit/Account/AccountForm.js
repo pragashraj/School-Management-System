@@ -8,10 +8,15 @@ class AccountForm extends Component {
 
     renderInput=(value)=>{
         const details=this.props.userDetails
+        console.log(details)
         switch(value){
             case "username":return <input type="text" name={value} defaultValue={details.username} className="acc-input-input" onChange={this.handleChange}/>
-            case "email":return <input type="text" name={value} defaultValue={details.mail} className="acc-input-input" onChange={this.handleChange}/>
+            case "mail":return <input type="text" name={value} defaultValue={details.mail} className="acc-input-input" onChange={this.handleChange}/>
             case "password":return <input type="text" name={value} defaultValue={details.password} className="acc-input-input" onChange={this.handleChange}/>
+            case "name":return <input type="text" name={value} required className="acc-input-input" onChange={this.handleChange}/>
+            case "grade":return <input type="text" name={value} required className="acc-input-input" onChange={this.handleChange}/>
+            case "house":return <input type="text" name={value} required className="acc-input-input" onChange={this.handleChange}/>
+            case "subject":return <input type="text" name={value} required className="acc-input-input" onChange={this.handleChange}/>
             default :return null
         }
     }
@@ -40,8 +45,14 @@ class AccountForm extends Component {
             <div className="account-form-container">
                 <form>
                     {
-                        this.renderInputs(["username","email","password"])
+                        this.props.type ==="update" ? this.renderInputs(["username","mail","password"]) 
+                        : (
+                            this.props.user ==="st" ? this.renderInputs(["name","grade","house"]) : this.renderInputs(["name","subject","house"])
+                        ) 
                     }
+                    <div className="acc-form-btn">
+                        <button className="form-btn" onClick={this.props.handleBtnPress}>{this.props.btnTitle}</button>
+                    </div>
                 </form>
             </div>
         )
@@ -53,10 +64,7 @@ class AccountForm extends Component {
             <div className="account-form">
                 {
                     this.renderForm()
-                }
-                <div className="acc-form-btn">
-                    <button className="form-btn" onClick={this.props.handleBtnPress}>{this.props.btnTitle}</button>
-                </div>
+                }     
             </div>
         )
     }

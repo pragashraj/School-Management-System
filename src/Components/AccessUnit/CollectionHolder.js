@@ -1,11 +1,15 @@
 import React from 'react'
 import '../../CSS/AccessUnit/collectionHolder.css'
-import Subjects from './collection/Subjects'
+
 import {connect} from 'react-redux'
+
+import Subjects from './collection/Subjects'
 import Accessories from './collection/Accessories'
 import UpcomingEvents from './collection/UpcomingEvents'
 import Grades from './collection/Grades'
 import AccountUpdate from './Account/AccountUpdate'
+import AccountInfo from './Account/AccountInfo'
+
 
 const CollectionHolder = ({contents,user}) => {
 
@@ -27,6 +31,8 @@ const CollectionHolder = ({contents,user}) => {
 
             case "Account_Update": return <AccountUpdate/>
 
+            case "Account_Info" : return <AccountInfo/>
+
             default : return(
                 user==="st" ? <Subjects subjectTitle={"Maths"}/> : <Grades/>
             )
@@ -37,9 +43,6 @@ const CollectionHolder = ({contents,user}) => {
             <div className="holder">
                 {
                     renderCollection()
-                }
-                {
-                    console.log(contents.type)
                 }
             </div>
         </div>

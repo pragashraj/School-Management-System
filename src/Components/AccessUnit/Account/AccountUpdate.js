@@ -1,21 +1,47 @@
 import React,{Component} from 'react'
 import {connect} from 'react-redux'
+
+import Api from '../../../Api/Api'
 import AccountForm from './AccountForm'
 
 class AccountUpdate extends Component {
     state={
         username:'',
-        email:'',
-        password:''
+        mail:'',
+        password:'',
+        id:''
     }
 
     componentDidMount(){
         const details=this.props.userDetails
+        const info=this.props.info
+
         this.setState({
             username:details.username,
-            email:details.mail,
+            mail:details.mail,
             password:details.password
         })
+        
+        if(info==="st"){
+            Api.get('/studentByName/'+details.username).then(
+                response=>{
+                    this.setState({
+                        id:response.data.id
+                    })
+                }
+            )
+        }else if(info==="th")
+        {
+            Api.get('/teacherByName/'+details.username).then(
+                response=>{
+                    this.setState({
+                        id:response.data.id
+                    })
+                }
+            )
+        }else{
+            return
+        }
     }
 
     handleTextChange=(e)=>{
@@ -25,8 +51,27 @@ class AccountUpdate extends Component {
         })
     }
 
-    handleBtnPress=()=>{
-        console.log("btn Pressed")
+    handleBtnPress=(e)=>{
+        e.preventDefault()
+        const updated=this.state
+        const info=this.props.info
+
+         if(info==="st"){
+            Api.put('/StUpdate',updated).then(
+                response=>{
+                    console.log("success")
+                }
+            )
+         }else if(info==="th"){
+            Api.put('/ThUpdate',updated).then(
+                response=>{
+                    console.log("success")
+                }
+            )
+         }else{
+             return
+         }
+
     }
 
     render(){
@@ -37,7 +82,9 @@ class AccountUpdate extends Component {
                     userDetails={this.props.userDetails} 
                     handleTextChange={this.handleTextChange}
                     btnTitle="Update"
-                    handleBtnPress={this.handleBtnPress} 
+                    handleBtnPress={this.handleBtnPress}
+                    type="update"
+                    
                 />
             </div>
         )

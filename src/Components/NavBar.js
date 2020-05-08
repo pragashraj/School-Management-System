@@ -65,7 +65,7 @@ const NavBar=({info,signOut,setdashBoard,setAccView,history})=> {
                     }
 
                     {
-                        info==="th" ? (<Link to="#"  className="nav-link">TAU</Link>):null
+                        info==="th" ? (<Link to="/tau"  className="nav-link">TAU</Link>):null
                     }
 
                        
