@@ -50,7 +50,7 @@ const NavBar=({info,signOut,setdashBoard,setAccView,history})=> {
                     info==='st' ? (
                         handleAccView()
                     ): (
-                        info==='th' ? handleAccView():handleAccView()
+                        info==='th' ? handleAccView():null
                     )
                 }
 

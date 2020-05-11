@@ -1,7 +1,9 @@
 import React ,{useState} from 'react'
 import '../../../CSS/AccessUnit/accessories.css'
 
-const Accessories = ({accessoriesTitle}) => {
+import {connect} from 'react-redux'
+
+const Accessories = ({accessoriesTitle,info}) => {
     const [option,setOption]=useState('')
 
     const handleChange=(e)=>{
@@ -27,7 +29,7 @@ const Accessories = ({accessoriesTitle}) => {
                    }
                 </select>
                 <div className="result-block">
-                    <p className="result-title">{option.toUpperCase()}</p>
+                    <p className="result-title">{option ? option.toUpperCase(): options[0]}</p>
                     <fieldset className="result-field-set">
                     </fieldset>
                 </div>
@@ -40,7 +42,7 @@ const Accessories = ({accessoriesTitle}) => {
                 
             case "Results": return accessoriesDropDown(["Term-Exam","Assignment"])
 
-            case "Assignments":return accessoriesDropDown(["Maths","Science","English"])
+            case "Assignments":return info ==="st" ? accessoriesDropDown(["Maths","Science","English"]) :accessoriesDropDown(["Gr13","Gr12","Gr11"])
                 
             default :return null 
         }
@@ -54,4 +56,11 @@ const Accessories = ({accessoriesTitle}) => {
     )
 }
 
-export default Accessories
+
+const mapStateToProps=({user:{info}})=>{
+    return{
+        info
+    }
+}
+
+export default connect(mapStateToProps) (Accessories)

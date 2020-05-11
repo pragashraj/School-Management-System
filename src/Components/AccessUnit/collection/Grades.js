@@ -12,11 +12,11 @@ const Grades = () => {
                 </fieldset>
             </div>
 
-            <div className="sub-btn-container">
-                <p className="sub-btn-text">Lessons</p>
+            <div className="grd-btn-container">
+                <p className="grd-btn-text">Lessons</p>
             </div>
-            <div className="sub-btn-container">
-                <p className="sub-btn-text" style={{marginLeft:'25%'}}>Home Works</p>
+            <div className="grd-btn-container">
+                <p className="grd-btn-text">Home Works</p>
             </div>
         </div>
     )

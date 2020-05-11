@@ -1,5 +1,5 @@
 import React from 'react'
-// import MoveStuffAround from '../Components/MoveStuffAround'
+import students from '../assets/students.png'
 
  const Home=()=> {
 
@@ -8,7 +8,16 @@ import React from 'react'
          <div className="home-page">
             <div className="home-head-block">
                 <div className="home-head">
-                    
+                    <div className="home-head-image-con">
+                        <img src={students} alt="students" className="header-mage"/>
+                    </div>
+                    <div className="home-head-intro">
+                        <p> 
+                        All staff members, in partnership with parents and families are fully committed to students’ 
+                        college and career readiness. Students are empowered to meet current and future challenges to develop social 
+                        awareness, civic responsibility, and personal growth.
+                        </p>
+                    </div>
                 </div>
             </div>
 

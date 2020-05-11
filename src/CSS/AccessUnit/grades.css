@@ -4,7 +4,7 @@
 
 .content-text-con{
     width: 30%;
-    float: left;
+    margin-left: 40%;
 }
 
 .content-text{
@@ -13,5 +13,33 @@
 
 .content-field-con{
     padding: 4%;
+    height: 50%;
+    width: 70%;
+    margin-left: 12%;
 }
 
+.content-field-set{
+    height: 100%;
+}
+
+.grd-btn-container{
+    background-color: blueviolet;
+    height: 12%;
+    width: 50%;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    margin-bottom: 1%;
+    margin-left: 25%;
+}
+
+.grd-btn-text{
+    color: white;
+    font-size: 1.5em;
+}
+
+.grd-btn-container :hover{
+    cursor: pointer;
+    background-color: white;
+    color: blueviolet;
+}

@@ -79,9 +79,6 @@ class AccountInfo extends Component {
                     type="add"  
                     user={this.props.info} 
                 />
-                {
-                    console.log(this.state)
-                }
             </div>
         )
     }
